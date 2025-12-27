@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtualenv
+.venv/
+
+# Local config
+.env
+
+# Data
+data/
+*.sqlite
+*.sqlite-journal
+*.db
+spool/
+logs/
+
+# OS
+.DS_Store
