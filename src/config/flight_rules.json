@@ -1,0 +1,651 @@
+{
+  "schema_version": "1.0",
+  "description": "Manual per-flight/per-track params for aviation V-Spline reconstruction. Add one rule object per flight/track. track_id should be unique. field_elevation and on_ground_window are intentionally null unless known.",
+  "rules": [
+    {
+      "track_id": "4ACA4A",
+      "icao": "4ACA4A",
+      "time_window": { 
+        "first_point_unix": 1776358216, 
+        "last_point_unix": 1776360137 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 0.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1776359847,
+        "end_unix": 1776360137
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "4BAAD9",
+      "icao": "4BAAD9",
+      "time_window": { 
+        "first_point_unix": 1766843350, 
+        "last_point_unix": 1766854455 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 273.0 
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1766854173,
+        "end_unix": 1766854455
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "48ADA7",
+      "icao": "48ADA7",
+      "time_window": { 
+        "first_point_unix": 1766851994, 
+        "last_point_unix": 1766853913 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 325.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1766853615,
+        "end_unix": 1766853913
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "48C229",
+      "icao": "48C229",
+      "time_window": { 
+        "first_point_unix": 1776357765, 
+        "last_point_unix": 1776362478 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 0.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1776359340,
+        "end_unix": 1776362478
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "502CC7",
+      "icao": "502CC7",
+      "time_window": { 
+        "first_point_unix": 1766855121, 
+        "last_point_unix": 1766856945 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 325.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1766856737,
+        "end_unix": 1766856945
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "502CCF",
+      "icao": "502CCF",
+      "time_window": { 
+        "first_point_unix": 1766852612, 
+        "last_point_unix": 1766854703 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 300.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1766854483,
+        "end_unix": 1766854703
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "502CE3",
+      "icao": "502CE3",
+      "time_window": { 
+        "first_point_unix": 1776360168, 
+        "last_point_unix": 1776361501 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 0.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1776361278,
+        "end_unix": 1776361501
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "502CE4",
+      "icao": "502CE4",
+      "time_window": { 
+        "first_point_unix": 1776358122, 
+        "last_point_unix": 1776359791 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 0.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1776359533,
+        "end_unix": 1776359791
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "502D5A",
+      "icao": "502D5A",
+      "time_window": { 
+        "first_point_unix": 1776361533, 
+        "last_point_unix": 1776362478 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 0.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1776362353,
+        "end_unix": 1776362478
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "502D5C",
+      "icao": "502D5C",
+      "time_window": { 
+        "first_point_unix": 1766852188, 
+        "last_point_unix": 1766854206 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 300.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1766853999,
+        "end_unix": 1766854206
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "502D5D",
+      "icao": "502D5D",
+      "time_window": { 
+        "first_point_unix": 1776358783, 
+        "last_point_unix": 1776360659 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 0.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1776360420,
+        "end_unix": 1776360659
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "502D9F",
+      "icao": "502D9F",
+      "time_window": { 
+        "first_point_unix": 1776359473, 
+        "last_point_unix": 1776361376 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 0.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1776361071,
+        "end_unix": 1776361376
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "502D59",
+      "icao": "502D59",
+      "time_window": { 
+        "first_point_unix": 1776359473, 
+        "last_point_unix": 1776361376 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 0.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": null,
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "502D96",
+      "icao": "502D96",
+      "time_window": { 
+        "first_point_unix": 1766850842, 
+        "last_point_unix": 1776361769 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 0.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1776361505,
+        "end_unix": 1776361769
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "4D22BF",
+      "icao": "4D22BF",
+      "time_window": { 
+        "first_point_unix": 1766850052, 
+        "last_point_unix": 1766851937 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 375.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1766850052,
+        "end_unix": 1766850753
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "48C1A7",
+      "icao": "48C1A7",
+      "time_window": { 
+        "first_point_unix": 1776357322, 
+        "last_point_unix": 1776361063 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 0.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1776358445,
+        "end_unix": 1776361063
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "502D5E",
+      "icao": "502D5E",
+      "time_window": { 
+        "first_point_unix": 1766843370, 
+        "last_point_unix": 1766850914 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 350.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1766843370,
+        "end_unix": 1766849755
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    },
+    {
+      "track_id": "4601F5",
+      "icao": "4601F5",
+      "time_window": { 
+        "first_point_unix": 1776357317, 
+        "last_point_unix": 1776358171 
+      },
+      "field_elevation": { 
+        "method": "fixed_ft_msl", 
+        "value": 350.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "on_ground_window": {
+        "start_unix": 1776358070,
+        "end_unix": 1776358171
+      },
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "keyframe_time_quantization_s": 1.0,
+      "raw_event_kind_column": "event_kind",
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km"
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR"
+      }
+    }
+  ]
+}

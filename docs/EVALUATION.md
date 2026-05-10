@@ -1,0 +1,152 @@
+# Evaluation Methodology
+
+The evaluator compares generated reconstruction methods.  It does not prove absolute truth because the repository does not include an independent high-accuracy reference trajectory.  Raw ADS-B observations are treated as measurement evidence, not perfect ground truth.
+
+## Evaluation question
+
+The useful question is:
+
+> Which reconstruction method gives the best balance of ADS-B fidelity, smooth derivatives, plausible aircraft dynamics, continuity, and gap behaviour for this flight?
+
+A single score is convenient but incomplete.  The evaluator reports grouped metrics, metric winners, reference-free trajectory-model scores, and a weighted overall ranking.
+
+## CLI
+
+Run evaluation after generating `track_output`:
+
+```bash
+python evaluate_reconstructions.py
+python evaluate_reconstructions.py --flight-id <track_id>
+python evaluate_reconstructions.py --icao <icao>
+python evaluate_reconstructions.py --all-flights
+```
+
+Useful options:
+
+```text
+--output-dir <dir>                 track_output folder
+--methods <method ids...>          restrict evaluated method ids
+--all-flights                      evaluate selected flights as a dataset
+--dataset-output-dir <dir>         dataset report directory
+--dataset-weight raw_sample_count|raw_position_overlap_count|duration_s|uniform
+--dataset-require-all-methods      rank only methods present for every evaluated flight
+--skip-flight-errors               continue dataset mode when a flight fails
+```
+
+Environment equivalents include `EVALUATION_FLIGHT_ID`, `EVALUATION_ICAO`, `EVALUATE_ALL_FLIGHTS`, `DATASET_EVALUATION_DIR`, `DATASET_EVALUATION_WEIGHT`, `DATASET_REQUIRE_ALL_METHODS`, and `SKIP_FLIGHT_ERRORS`.
+
+## Inputs
+
+The evaluator reads `track_output/flights.json`, selects a flight entry, loads the `raw_adsb` method, and loads non-raw methods listed in that flight manifest.  Missing method files are printed and skipped.  If no reconstruction method can be loaded, evaluation fails for that flight.
+
+The evaluator does not scan the filesystem for unlisted method files.  Method inclusion is controlled by the manifest and the optional `--methods` filter.
+
+## Output files
+
+Single-flight reports are written to:
+
+```text
+track_output/flights/<track_id>/debug/
+```
+
+Generated evaluation files are:
+
+```text
+evaluation_summary.json
+evaluation_metrics.csv
+evaluation_group_scores.csv
+trajectory_model_metrics.csv
+evaluation_report.md
+```
+
+Dataset reports are written to `track_output/dataset_evaluation/` unless `--dataset-output-dir` is supplied.  Generated dataset files include:
+
+```text
+dataset_evaluation_summary.json
+dataset_weighted_metrics.csv
+dataset_group_scores.csv
+dataset_method_coverage.csv
+dataset_method_flight_metrics.csv
+dataset_flight_rankings.csv
+dataset_trajectory_model_metrics.csv
+dataset_flight_errors.csv
+dataset_evaluation_report.md
+```
+
+## Metric groups
+
+The evaluator groups lower-is-better metrics as follows.
+
+| Group | What it measures |
+|---|---|
+| `smoothness` | acceleration, jerk, and high-frequency derivative energy |
+| `aircraft_dynamics` | curvature, airborne turn rate, and bank-angle proxy |
+| `raw_position_fidelity` | horizontal, vertical, 3D, along-track, and cross-track position error against raw ADS-B |
+| `raw_velocity_fidelity` | horizontal velocity, ground speed, and track-angle error against raw ADS-B |
+| `shape_similarity` | Hausdorff, symmetric Hausdorff, dynamic time warping, and discrete Fréchet distances |
+| `endpoint_artifacts` | endpoint acceleration and jerk ratios |
+| `gap_behavior` | derivative behaviour over long raw gaps |
+| `trajectory_model_reference_free` | loss derived from the reference-free trajectory-model score |
+| `envelope_violations` | counts above configured physical plausibility thresholds |
+
+The default group weights are:
+
+```text
+smoothness:                      2.0
+aircraft_dynamics:               1.0
+raw_position_fidelity:           2.0
+raw_velocity_fidelity:           1.5
+shape_similarity:                1.0
+endpoint_artifacts:              0.5
+gap_behavior:                    0.5
+trajectory_model_reference_free: 2.0
+envelope_violations:             1.0
+```
+
+The overall score is lower-is-better.
+
+## Reference-free trajectory-model score
+
+The pipeline also writes reference-free trajectory-model metrics under the method quality block and in `trajectory_model_metrics.csv`.  This family evaluates internal trajectory behaviour without treating raw ADS-B as truth.  It considers observation consistency, velocity evidence, finite-difference kinematics, smoothness, physical plausibility, dynamic-detail preservation, derivative closure, event-aware joins, hard-gap honesty, and locality scope.
+
+The evaluator turns this higher-is-better score into a lower-is-better loss for the weighted group score:
+
+```text
+trajectory_model_score_loss = 100 - trajectory_model_weighted_score
+```
+
+## Synthetic-gap diagnostics
+
+Synthetic-gap methods have ids ending in `_synthetic_gap`.  They are generated by withholding deterministic interior raw windows during fitting.  They are useful for checking interpolation behaviour at deleted ADS-B samples.
+
+The evaluator reads these methods when they appear in the manifest.  For production-only leaderboards, pass an explicit `--methods` list that excludes diagnostic method ids.
+
+## Dataset aggregation
+
+In dataset mode, the evaluator runs single-flight evaluation for each selected flight and then aggregates numeric metrics per method.  RMSE-like metrics are combined by weighted RMS.  Count-like metrics are summed.  Other numeric metrics use weighted averages.
+
+The `--dataset-weight` option controls per-flight weighting:
+
+```text
+raw_sample_count
+raw_position_overlap_count
+duration_s
+uniform
+```
+
+`--dataset-require-all-methods` limits ranking to methods available for every successfully evaluated flight.
+
+## Interpreting rankings
+
+A method can win the overall score and still lose an important group.  For example, a smooth method may have excellent jerk metrics and weaker raw fidelity.  An accurate method may follow ADS-B closely and show higher derivative energy.  The overall rank is a summary of the chosen weights, not an absolute verdict.
+
+Use these outputs together:
+
+```text
+evaluation_report.md              quick ranking and group summary
+evaluation_metrics.csv            raw metric table
+evaluation_group_scores.csv       grouped lower-is-better scores
+trajectory_model_metrics.csv      reference-free quality components
+segment_metrics.csv               local spline fit details
+join_metrics.csv                  continuity evidence
+```

@@ -4,7 +4,10 @@ __pycache__/
 *.pyo
 
 # Virtualenv
-.venv/
+venv/
+
+# dataset
+track_output/
 
 # Local config
 .env
